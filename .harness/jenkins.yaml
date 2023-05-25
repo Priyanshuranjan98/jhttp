@@ -1,0 +1,49 @@
+pipeline:
+  name: jenkins
+  identifier: jenkins
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: test
+        identifier: test
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: Kubernetes
+          service:
+            serviceRef: testjenkins
+          execution:
+            steps:
+              - step:
+                  type: JenkinsBuild
+                  name: JenkinsBuild_1
+                  identifier: JenkinsBuild_1
+                  spec:
+                    connectorRef: jenkinsConnector
+                    jobName: jhhtp
+                    jobParameter: []
+                    unstableStatusAsSuccess: true
+                    useConnectorUrlForJobExecution: false
+                  timeout: 10m
+            rollbackSteps: []
+          environment:
+            environmentRef: testproduction
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: test
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - Unknown
+                - Timeout
+                - ApprovalRejection
+              action:
+                type: ManualIntervention
+                spec:
+                  timeout: 10m
+                  onTimeout:
+                    action:
+                      type: Abort
