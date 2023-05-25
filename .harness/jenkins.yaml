@@ -21,7 +21,7 @@ pipeline:
                   name: JenkinsBuild_1
                   identifier: JenkinsBuild_1
                   spec:
-                    connectorRef: jenkinsConnector
+                    connectorRef: desktopqs40shb
                     jobName: jhhtp
                     jobParameter: []
                     unstableStatusAsSuccess: true
