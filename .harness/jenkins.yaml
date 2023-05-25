@@ -37,9 +37,7 @@ pipeline:
         failureStrategies:
           - onFailure:
               errors:
-                - Unknown
-                - Timeout
-                - ApprovalRejection
+                - AllErrors
               action:
                 type: ManualIntervention
                 spec:
