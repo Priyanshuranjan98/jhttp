@@ -34,7 +34,10 @@ pipeline:
                   spec:
                     skipDryRun: false
                     pruningEnabled: false
+                    delegateSelectors:
+                      - firstk8sdel
                   timeout: 10m
+                  failureStrategies: []
             rollbackSteps: []
           environment:
             environmentRef: testproduction
