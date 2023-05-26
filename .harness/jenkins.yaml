@@ -27,17 +27,6 @@ pipeline:
                     unstableStatusAsSuccess: false
                     useConnectorUrlForJobExecution: true
                   timeout: 10m
-              - step:
-                  type: K8sBlueGreenDeploy
-                  name: K8sBlueGreenDeploy_1
-                  identifier: K8sBlueGreenDeploy_1
-                  spec:
-                    skipDryRun: false
-                    pruningEnabled: false
-                    delegateSelectors:
-                      - firstk8sdel
-                  timeout: 10m
-                  failureStrategies: []
             rollbackSteps: []
           environment:
             environmentRef: testproduction
