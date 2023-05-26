@@ -24,8 +24,8 @@ pipeline:
                     connectorRef: newjenkinsconnector
                     jobName: jhhtp
                     jobParameter: []
-                    unstableStatusAsSuccess: true
-                    useConnectorUrlForJobExecution: false
+                    unstableStatusAsSuccess: false
+                    useConnectorUrlForJobExecution: true
                   timeout: 10m
             rollbackSteps: []
           environment:
@@ -45,3 +45,5 @@ pipeline:
                   onTimeout:
                     action:
                       type: Abort
+  delegateSelectors:
+    - firstk8sdel
