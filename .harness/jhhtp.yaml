@@ -34,7 +34,7 @@ pipeline:
                     connectorRef: dockerconnector
                     repo: pranjandev/jhttp
                     tags:
-                      - ${buildNumber}
+                      - latest
           platform:
             os: Linux
             arch: Amd64
